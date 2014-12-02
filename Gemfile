@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
+
+ gem 'unicorn'
+
 gem 'sinatra'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'

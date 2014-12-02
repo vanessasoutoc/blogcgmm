@@ -1,23 +1,26 @@
 <div class="row">
 	<div class="large-12 large-centered columns">
 		<%= render @article %>
-
+		<h5><i>Conpartilhe</i></h5>
 		<%= facebook_button %>
 		<br>
-		<%= link_to 'Email a friend', '#',
+		<%= link_to 'Enviar a um amigo', '#',
 :onclick => "$('#notify_friend_form').slideDown()" %>
-
+		<br>
 		<%= render 'notify_friend' %>
-
-		<h3>Comments</h3>
-
+		<br>
+		<h3>Comentários</h3>
+		<br>
 		<div id="comments">
 			<%= render @article.comments %>
 		</div>
-		<%= link_to "new comment", new_article_comment_path(@article, :format => :js),
-:remote => true, :id => 'new_comment_link' %>
+		<hr>
+		<br>
+		<%= link_to "Comentar", new_article_comment_path(@article, :format => :js),
+:remote => true, :id => 'new_comment_link', :class => 'button small primary' %>
 
 	</div>
 
 	<%= @article.user.email %>
+
 </div>
