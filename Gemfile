@@ -2,13 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
 
-gem 'unicorn'
 
-ruby '2.0.0'
 
-gem 'sinatra'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.5'
 
 gem 'angularjs-rails'
 #gem de compartilhar com redes sociais
