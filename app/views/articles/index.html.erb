@@ -2,21 +2,25 @@
 	<div class="large-12 large-12 columns">
 		<div class="large-9 columns">
 			<h3 class="article-title"><b>Postagens</b></h3>
+			<% if current_user.present? %>
+			<%= link_to 'Novo Post', new_article_path, :class => 'button small' %> 
+			<% end %>
 
 
-				<div class="panel panel-article">
-					<% @articles.each do |article| %>
-					<%= link_to 'Ver', article_path(article), :class => 'button small default right' %>
-				
-					<h3><%= link_to article.title, article_path(article) %></h3>
-					<p><%= simple_format article.body[0,250] %> 
-					</p>
-					
-					
-	
-					<hr>
-					<% end %>
-		
+
+			<div class="panel panel-article">
+				<% @articles.each do |article| %>
+				<%= link_to 'Ver', article_path(article), :class => 'button small default right' %>
+
+				<h3><%= link_to article.title, article_path(article) %></h3>
+				<p><%= simple_format article.body[0,250] %> 
+				</p>
+
+
+
+				<hr>
+				<% end %>
+
 			</div>
 		</div>
 		<br />
@@ -41,14 +45,14 @@
 		<br>
 	</div>
 	<div class="large-12 columns" id="contato">
-			<h1 style="text-align: center">Contato:</h1>
-			<br>
-			<div class="large-6 columns">
-				<input type="text" id="name" name="name" placeholder="Seu nome">
-				<input type="email" id="email" name="email" placeholder="Seu e-mail">
-				<textarea name="message" id="message" cols="30" rows="5" placeholder="Sua mensagem"></textarea>
-			</div>
+		<h1 style="text-align: center">Contato:</h1>
+		<br>
+		<div class="large-6 columns">
+			<input type="text" id="name" name="name" placeholder="Seu nome">
+			<input type="email" id="email" name="email" placeholder="Seu e-mail">
+			<textarea name="message" id="message" cols="30" rows="5" placeholder="Sua mensagem"></textarea>
 		</div>
+	</div>
 </div>
 
 
@@ -64,9 +68,7 @@
 </li>
 </ul>-->
 
-<% if current_user.present? %>
-<%= link_to 'New article', new_article_path %> 
-<% end %>
+
 </div>
 
 
