@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title><%= content_for?(:title) ? yield(:title) : "CGMM Advogados Associados" %></title>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "foundation.magellan" %>
+		<%= javascript_include_tag "LAB.min" %>
+		<%= javascript_include_tag "app" %>
+		<%= stylesheet_link_tag "application" %>
+		<%= javascript_include_tag "vendor/modernizr" %>
+		<%= csrf_meta_tags %>
+	</head>
+
+	<body ng-controller="FeedController" ng-init="uri('http://www.tjmg.jus.br/data/rss/noticiasTJMG.xml')">
+
+		<nav class="top-bar" data-topbar role="navigation" data-magellan-expedition="fixed">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href=""><%= image_tag("logomarca.jpg", size: "200") %></a></h1>
+				</li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				
+				<ul class="right">
+				<li data-magellan-arrival="contato" ><a href="#contato" >Contato</a></li>
+					<% if current_user.present? %>
+					<li><a><%= link_to "Sair", logout_path %></a></li>
+					<% else %>
+					<li class="has-dropdown">
+						<a href="#">Entrar</a>
+						<ul class="dropdown">
+							<%= render :partial => 'sessions/new' %>
+
+						</ul>
+					</li>
+					<% end %>
+				</ul>
+
+				<!-- Left Nav Section -->
+				<ul class="left">
+					<li data-magellan-arrival="post" class="active"><a href="#post">Blog</a></li>
+				</ul>
+			</section>
+		</nav>
+
+		<%= yield %>
+
+		<!-- notice display -->
+		<div class="row">
+			<div class="large-5 large-centered columns">
+				<% if notice %>
+				<div data-alert class="alert-box success radius">
+					<%= notice %>
+					<a href="#" class="close">&times;</a>
+				</div>
+				<% end %>
+				<% if alert %>
+				<div data-alert class="alert-box alert radius">
+					<%= alert %>
+					<a href="#" class="close">&times;</a>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		
+		<footer>
+			<div style="text-align:center">
+				<br>
+				<p style="margin-top: 1%!important">
+					&copy; 2014 <a href="#fakelink">CGMM Advogados Associados</a><br />
+					Develop by <b>Vanessa Souto</b></p>
+			</div>
+		</footer>
+
+
+
+	</body>
+</html>

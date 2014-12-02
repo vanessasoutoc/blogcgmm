@@ -1,0 +1,25 @@
+
+
+		<div class="panel" style="width:400px">
+			<br>
+			<h3 style="text-align: center">Entrar</h3>
+			<%= form_tag session_path do %>
+			<div class="field">
+				<label>E-mail:
+					<%= text_field_tag :email %>
+				</label>
+			</div>
+			<div class="field">
+				<label>Senha:
+					<%= password_field_tag :password %>
+				</label>
+				<br>
+			</div>
+			<div class="actions">
+				<%= submit_tag 'Entrar', :class => 'button small default right' %>
+				<br>
+				<br>
+			</div>
+			<% end %>
+		</div>
+

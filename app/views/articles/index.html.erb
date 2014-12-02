@@ -1,0 +1,72 @@
+<div id="post" name="post" data-magellan-destination="post">
+	<div class="large-12 large-12 columns">
+		<div class="large-9 columns">
+			<h3 class="article-title"><b>Postagens</b></h3>
+
+
+				<div class="panel panel-article">
+					<% @articles.each do |article| %>
+					<%= link_to 'Ver', article_path(article), :class => 'button small default right' %>
+				
+					<h3><%= link_to article.title, article_path(article) %></h3>
+					<p><%= simple_format article.body[0,250] %> 
+					</p>
+					
+					
+	
+					<hr>
+					<% end %>
+		
+			</div>
+		</div>
+		<br />
+
+
+
+		<div class="large-3 columns">
+			<div class="feed-content">
+				<p class="right" style="margin-bottom: 0px; padding-right: 5px"><i>Notícias do TJMG</i></p>
+			</div>
+			<div class="feed-content">
+				<ul data-orbit>
+					<li data-orbit-slide="headline" ng-repeat="feed in feeds">
+						<div class="align-feed">
+							<a href="{{feed.link}}" target="_blank"><h3><b>{{feed.title}}</b></h3></a>
+							<p class="right">{{formataData(feed.publishedDate)}}</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+	</div>
+	<div class="large-12 columns" id="contato">
+			<h1 style="text-align: center">Contato:</h1>
+			<br>
+			<div class="large-6 columns">
+				<input type="text" id="name" name="name" placeholder="Seu nome">
+				<input type="email" id="email" name="email" placeholder="Seu e-mail">
+				<textarea name="message" id="message" cols="30" rows="5" placeholder="Sua mensagem"></textarea>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+
+<!--<ul id="list">
+<li ng-repeat="feed in feeds">
+<p>{{feed.publishedDate}}</p>
+<p><a href="{{feed.link}}">{{feed.title}}</a></p>
+<p><i>{{feed.contentSnippet}}</i></p>
+</li>
+</ul>-->
+
+<% if current_user.present? %>
+<%= link_to 'New article', new_article_path %> 
+<% end %>
+</div>
+
+

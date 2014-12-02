@@ -1,0 +1,12 @@
+<%= div_for comment do %>
+<h4>
+	<%= comment.name %> &lt;<%= comment.email %>&gt; disse:
+	<% if @article.owned_by? current_user %>
+	<span class='actions'>
+		<%= link_to 'Delete', [@article, comment],
+	confirm: 'Are you sure?', method: :delete %>
+	</span>
+	<% end %>
+</h4>
+<%= comment.body %>
+<% end %> 

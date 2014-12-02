@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="large-12 large-centered columns">
+		<%= div_for article do %>
+		<h3>
+			<%= link_to article.title, article_path(article) %>
+			<% if article.owned_by? current_user %>
+			<span class='actions'>
+				<%= link_to "Deletar", article, confirm: "Você tem certeza?", method: :delete, :class => 'button small alert right' %>
+				<%= link_to "Editar", edit_article_path(article), :class => 'button small default right' %>
+
+			</span>
+			<% end %>
+		</h3>
+		<%= simple_format article.body %>
+		<% end %> 
+	</div>
+</div>

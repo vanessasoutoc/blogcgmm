@@ -1,0 +1,13 @@
+<h1>Seu amigo recomenda este post a você</h1>
+<html>
+<body>
+<p>
+<%= @sender_name %> gostou desse artigo e quer que você leia.
+</p>
+ 
+<p>
+Para acessar o artigo, copie o link e cole no seu navegador para visualizar <strong><%= @article.title %></strong> at
+<%= article_url @article, :host => 'localhost:3000' %>
+</p>
+</body>
+</html>
