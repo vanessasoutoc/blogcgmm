@@ -10,35 +10,41 @@
 	</ul>
 </div>
 <% end %>
-<div class="field">
-	<%= f.label :title %><br />
-	<%= f.text_field :title %>
-</div>
-<div class="field">
-	<%= f.label :location %><br />
-	<%= f.text_field :location %>
-</div>
-<div class="field">
-	<%= f.label "Categories" %><br />
-	<% Category.all.each do |category| %>
-	<%= check_box_tag 'article[category_ids][]', category.id,
+<form>
+	<div class="field">
+		<%= f.label 'Título:' %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label 'Local:' %><br />
+		<%= f.text_field :location %>
+	</div>
+	<div class="field">
+		<%= f.label "Categoria:" %><br />
+		<% Category.all.each do |category| %>
+		<%= check_box_tag 'article[category_ids][]', category.id,
 	@article.category_ids.include?(category.id), id: dom_id(category) %>
-	<%= label_tag dom_id(category), category.name, class: "check_box_label" %>
+		<%= label_tag dom_id(category), category.name, class: "check_box_label" %>
+		<% end %>
+	</div>
+	<div class="field">
+		<%= f.label 'Tags:' %><br />
+		<%= f.text_field :excerpt %>
+	</div>
+	<div class="field">
+		<%= f.label 'Texto:' %><br />
+		<%= f.text_area :body %>
+	</div>
+	<div class="field">
+		
+
+			<%= f.label 'Publicado em:' %><br />
+			<%= f.datetime_select :published_at %>
+	
+	</div>
+	<div class="actions">
+		<%= f.submit 'Publicar', :class => 'button small default' %>
+		<%= link_to "Cancelar", articles_path, :class => 'button small alert' %>
+	</div>
 	<% end %>
-</div>
-<div class="field">
-	<%= f.label :excerpt %><br />
-	<%= f.text_field :excerpt %>
-</div>
-<div class="field">
-	<%= f.label :body %><br />
-	<%= f.text_area :body %>
-</div>
-<div class="field">
-	<%= f.label :published_at %><br />
-	<%= f.datetime_select :published_at %>
-</div>
-<div class="actions">
-	<%= submit_or_cancel(f) %>
-</div>
-<% end %>
+</form>

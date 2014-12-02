@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 	end
 	def destroy
 		reset_session
-		redirect_to root_path, :notice => "You successfully logged out"
+		redirect_to root_path, :notice => "Você saiu do sistema!"
 	end
 
 end

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to articles_path, notice: 'User successfully added.'
+			redirect_to articles_path, notice: 'Usuário cadastrado com sucesso!'
 		else
 			render action: :new
 		end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 	def update
 		@user = current_user
 		if @user.update(user_params)
-			redirect_to articles_path, notice: 'Updated user information successfully.'
+			redirect_to articles_path, notice: 'Usuário alterado com sucesso!'
 		else
 			render action: 'edit'
 		end
