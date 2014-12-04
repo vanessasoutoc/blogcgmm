@@ -4,8 +4,8 @@
 	<% if @article.owned_by? current_user %>
 	<span class='actions'>
 	<br>
-		<%= link_to 'Delete', [@article, comment],
-	confirm: 'Are you sure?', method: :delete, :class => 'button small alert right' %>
+		<%= link_to 'Excluir', [@article, comment],
+	confirm: 'Tem certeza que quer excluir?', method: :delete, :class => 'button small alert right' %>
 	</span>
 	<% end %>
 </h4>
