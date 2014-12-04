@@ -50,17 +50,18 @@
 				</ul>
 			</section>
 		</nav>
+		<!-- notice display -->
 		<div class="row">
 			<div class="large-5 large-centered columns">
 				<% if notice %>
 				<div data-alert class="alert-box success radius">
-					<%= notice %>
+					<strong><%= notice %></strong>
 					<a href="#" class="close">&times;</a>
 				</div>
 				<% end %>
 				<% if alert %>
 				<div data-alert class="alert-box alert radius">
-					<%= alert %>
+					<strong><%= alert %></strong>
 					<a href="#" class="close">&times;</a>
 				</div>
 				<% end %>
@@ -69,7 +70,7 @@
 
 		<%= yield %>
 
-		<!-- notice display -->
+		
 
 
 		<footer>
@@ -77,7 +78,7 @@
 				<br>
 				<p style="margin-top: 1%!important">
 					&copy; 2014 <a href="#fakelink">CGMM Advogados Associados</a><br />
-					Develop by <b>Vanessa Souto</b></p>
+					Developed by <strong>Vanessa Souto</strong></p>
 			</div>
 		</footer>
 

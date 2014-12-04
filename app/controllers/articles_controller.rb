@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 		@article = current_user.articles.new(article_params)
 		respond_to do |format|
 			if @article.save
-				format.html { redirect_to @article, notice: t('articles.create_success') }
+				format.html { redirect_to @article, notice: "Post criado com sucesso!" }
 				format.json { render action: 'show', status: :created, location: @article }
 			else
 				format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
 		@article = current_user.articles.find(params[:id])
 		respond_to do |format|
 			if @article.update(article_params)
-				format.html { redirect_to @article, notice: t('articles.update_success') }
+				format.html { redirect_to @article, notice: "Post alterado com sucesso!" }
 				format.json { head :no_content }
 			else
 				format.html { render action: 'edit' }

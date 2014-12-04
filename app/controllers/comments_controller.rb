@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @article.comments.new(comment_params)
 		if @comment.save
-			redirect_to @article, notice: 'Thanks for your comment'
+			redirect_to @article, notice: 'Obrigado por comentar!'
 		else
-			redirect_to @article, alert: 'Unable to add comment'
+			redirect_to @article, alert: 'Seu comentário não foi adicionado.'
 		end
 	end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 		@article = current_user.articles.find(params[:article_id])
 		@comment = @article.comments.find(params[:id])
 		@comment.destroy
-		redirect_to @article, notice: 'Comment Deleted'
+		redirect_to @article, notice: 'Comentário excluído.'
 	end
 
 	private
