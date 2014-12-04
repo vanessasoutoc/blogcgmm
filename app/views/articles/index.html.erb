@@ -5,27 +5,18 @@
 			<% if current_user.present? %>
 			<%= link_to 'Novo Post', new_article_path, :class => 'button small' %> 
 			<% end %>
-
-
-
 			<div class="panel panel-article">
 				<% @articles.each do |article| %>
 				<%= link_to 'Ver', article_path(article), :class => 'button small default right' %>
-
 				<h3><%= link_to article.title, article_path(article) %></h3>
-				<p><%= simple_format article.body[0,250] %> 
+				<p><%= simple_format article.body[0,50] %> 
 				</p>
-
-
-
-				<hr>
+			<hr>
 				<% end %>
 
 			</div>
 		</div>
 		<br />
-
-
 
 		<div class="large-3 columns">
 			<div class="feed-content">

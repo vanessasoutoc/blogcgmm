@@ -2,12 +2,10 @@
 	<div class="large-12 large-centered columns">
 		<%= render @article %>
 		<h5><i>Compartilhe</i></h5>
-	
+
 		<%= facebook_button %>
 		
-	<%= render_shareable :static_link => true, :facebook=> {:send=> 'true'}  %>
-		
-	
+
 		<br>
 		<%= link_to 'Enviar a um amigo', '#',
 :onclick => "$('#notify_friend_form').slideDown()" %>
