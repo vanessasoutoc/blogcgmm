@@ -15,41 +15,47 @@
 	</head>
 
 	<body ng-controller="FeedController" ng-init="uri('http://www.tjmg.jus.br/data/rss/noticiasTJMG.xml')">
+		<div class="fixed">
+			<nav class="top-bar" data-topbar role="navigation">
+				<ul class="title-area">
+					<li class="name">
 
-		<nav class="top-bar" data-topbar role="navigation" data-magellan-expedition="fixed">
-			<ul class="title-area">
-				<li class="name">
-					<h1><a href="http://blogcgmm.heroku.com"><%= image_tag("logomarca.jpg", size: "200") %></a></h1>
-				</li>
-				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-			</ul>
-
-			<section class="top-bar-section">
-				<!-- Right Nav Section -->
-
-				<ul class="right">
-					<li data-magellan-arrival="post"><a href="#post">Blog</a></li>
-					<li data-magellan-arrival="contato" ><a href="#contato" >Contato</a></li>
-					<% if current_user.present? %>
-					<li><a><%= link_to 'Novo Usuário', new_user_path %></a></li>
-					<li><a><%= link_to "Sair", logout_path %></a></li>
-					<% else %>
-					<li class="has-dropdown">
-						<a href="#">Entrar</a>
-						<ul class="dropdown">
-							<%= render :partial => 'sessions/new' %>
-						</ul>
 					</li>
-					<% end %>
+					<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 				</ul>
 
-				<!-- Left Nav Section -->
-				<ul class="left">
+				<section class="top-bar-section">
+					<!-- Right Nav Section -->
+					<ul class="center">
+						<li data-magellan-arrival="home"><a href="#home" >CGMM</a></li>
+						<li data-magellan-arrival="atuacao" ><a href="#atuacao" >Atuação</a></li>
+						<li data-magellan-arrival="post"><a href="#post">Blog</a></li>
+						<li data-magellan-arrival="escritorio" ><a href="#escritorio" >Escritório</a></li>
+						<li data-magellan-arrival="equipe" ><a href="#equipe" >Equipe</a></li>
+						<li data-magellan-arrival="contato" ><a href="#contato" >Contato</a></li>
+					</ul>
+					<ul class="right">
+						<% if current_user.present? %>
+						<li><a><%= link_to 'Novo Usuário', new_user_path %></a></li>
+						<li><a><%= link_to "Sair", logout_path %></a></li>
+						<% else %>
+						<li class="has-dropdown">
+							<a href="#">Entrar</a>
+							<ul class="dropdown">
+								<%= render :partial => 'sessions/new' %>
+							</ul>
+						</li>
+						<% end %>
+					</ul>
 
-				</ul>
-			</section>
-		</nav>
+					<!-- Left Nav Section -->
+					<ul class="left">
+
+					</ul>
+				</section>
+			</nav>
+		</div>
 		<!-- notice display -->
 		<div class="row">
 			<div class="large-5 large-centered columns">
@@ -70,7 +76,7 @@
 
 		<%= yield %>
 
-		
+
 
 
 		<footer>
@@ -81,7 +87,6 @@
 					Developed by <strong>Vanessa Souto</strong></p>
 			</div>
 		</footer>
-
 
 
 	</body>

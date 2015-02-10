@@ -1,21 +1,38 @@
-<div id="post" name="post" data-magellan-destination="post">
+<div id="home">
+	<div class="container">
+		<div class="large-12 columns wrapper" >
+			<div id="page-title">
+				<div id="page-title-inner">
+					<h2>Bem-Vindo</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="post">
 	<div class="large-12 large-12 columns">
 		<div class="large-9 columns">
-			<h3 class="article-title"><b>Postagens</b></h3>
+			<h2>Postagens</h2>
 			<% if current_user.present? %>
 			<%= link_to 'Novo Post', new_article_path, :class => 'button small' %> 
 			<% end %>
+			<div style="text-align: center">
+				<%= will_paginate @articles = Article.paginate(:page => params[:page], :per_page => 1), renderer: FoundationPagination::Rails %>
+			</div>
 			<div class="panel panel-article">
+
 				<% @articles.each do |article| %>
 				<%= link_to 'Ver', article_path(article), :class => 'button small default right' %>
 				<h3><%= link_to article.title, article_path(article) %></h3>
 				<p><%= simple_format article.body[0,50] %> 
 				</p>
-			<hr>
+				<hr>
 				<% end %>
-
 			</div>
 		</div>
+
 		<br />
 
 		<div class="large-3 columns">
@@ -35,13 +52,21 @@
 		</div>
 		<br>
 	</div>
-	<div class="large-12 columns" id="contato">
-		<h1 style="text-align: center">Contato:</h1>
-		<br>
-		<div class="large-6 columns">
+
+
+	<div class="large-12 columns wrapper" id="contato">
+		<div id="page-title">
+			<div id="page-title-inner">
+				<h2>Contato:</h2>
+				<br></div>
+		</div>
+		<div class="large-5 large-offset-1 columns">
 			<input type="text" id="name" name="name" placeholder="Seu nome">
 			<input type="email" id="email" name="email" placeholder="Seu e-mail">
 			<textarea name="message" id="message" cols="30" rows="5" placeholder="Sua mensagem"></textarea>
+		</div>
+		<div class="large-5 large-pull-1 columns">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3755.186983575846!2d-47.934587000000015!3d-19.747208800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bad03316870b4d%3A0xd4079c2c45448776!2sR.+Quintiliano+Jardim+-+Centro%2C+Uberaba+-+MG%2C+38010-120!5e0!3m2!1spt-BR!2sbr!4v1416869859331" width="100%" height="300px" frameborder="0" style="border:0"></iframe>
 		</div>
 	</div>
 </div>
